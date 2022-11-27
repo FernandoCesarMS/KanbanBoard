@@ -36,26 +36,26 @@ typedef struct {
   int ultimoFinalizado;
 } QuadroKanban; //Struct que armazena 3 listas que representam as colunas do quadro
 
-//Funções
+//Declaração das Funções
 void inicializaQuadroKanban();
 int leArquivoEntrada(char[]); // Função que le arquivo de entrada e armazena os cards recebidos
-void escolheOperacao();
-void salvarQuadro();
-void criaNovoCartao();
-void moveCartaoFazendo();
-void moveCartaoFinalizado();
-void imprimeTarefasPorResponsavel();
-void imprimeTarefasPorColuna();
-void imprimeTarefasAtrasadas();
-void adicionaTarefa(char[]);
-void criaTarefaPendente(char[], char[]);
-void criaTarefaFazendo(char[], char[], char[]);
-void criaTarefaFinalizada(char[], char[], char[]);
-void imprimePendente(int);
-void imprimeFazendo(int);
-void imprimeFinalizado(int);
-void retiraQuebraLinha(char[]);
-int totalDias(char[]);
+void escolheOperacao(); // Escolhe entre as 7 operações possíveis para o usuário
+void salvarQuadro(); // Operação 1: Salva quadro em um arquivo externo out.txt
+void criaNovoCartao(); // Operação 2: Cria nova tarefa no quadro kanban
+void moveCartaoFazendo(); // Operação 3: Move tarefa para em andamento
+void moveCartaoFinalizado(); // Operação 4: Move tarefa para finalizado
+void imprimeTarefasPorResponsavel(); // Operação 6: Imprime as tarefas referente ao usuário inserido
+void imprimeTarefasPorColuna(); // Operação 5: Imprime as tarefas referente a determinada coluna 
+void imprimeTarefasAtrasadas(); // Operação 7: Imprime as tarefas atrasadas a partir de uma entrada de data 
+void adicionaTarefa(char[]); // Adiciona tarefa no quadro kanban
+void criaTarefaPendente(char[], char[]); // Adiciona tarefa a coluna pendente
+void criaTarefaFazendo(char[], char[], char[]); // Adiciona tarefa a coluna fazendo
+void criaTarefaFinalizada(char[], char[], char[]); // Adiciona tarefa a coluna finalizado
+void imprimePendente(int); // Imprime todos os pendentes
+void imprimeFazendo(int); // Imprime todos os em andamento
+void imprimeFinalizado(int); // Imprime todos os finalizados
+void retiraQuebraLinha(char[]); // Retira \n do final dos inputs
+int totalDias(char[]); // Calcula os dias para determinada data, utilizado para verificação de atraso de tarefas
 
 //Variaveis Globais
 QuadroKanban quadroKanban;
@@ -70,6 +70,8 @@ int main(int argc, char *argv[]) {
       escolheOperacao();
   }
 }
+
+// Corpo das funções
 
 void inicializaQuadroKanban() {
   quadroKanban.ultimoPendente = 0;
